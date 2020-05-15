@@ -1,4 +1,7 @@
 class CheckoutsController < ApplicationController
+  
+  skip_before_action :verify_authenticity_token
+  
   TRANSACTION_SUCCESS_STATUSES = [
     Braintree::Transaction::Status::Authorizing,
     Braintree::Transaction::Status::Authorized,
