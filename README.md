@@ -30,7 +30,7 @@ An example Braintree integration for Ruby on Rails.
 
 You can deploy this app directly to Heroku to see the app live. Skip the setup instructions above and click the button below. This will walk you through getting this app up and running on Heroku in minutes.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/eduardo/braintree_rails_example&env[BT_ENVIRONMENT]=sandbox)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/eduardo76609/braintree_rails_example&env[BT_ENVIRONMENT]=sandbox)
 
 ## Running Tests
 
