@@ -35,11 +35,13 @@ class CheckoutsController < ApplicationController
     )
 
     if result.success? || result.transaction
-      redirect_to checkout_path(result.transaction.id)
+      #redirect_to checkout_path(result.transaction.id)
+      render json: {result: result.transaction.id}
     else
       error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
-      flash[:error] = error_messages
-      redirect_to new_checkout_path
+      #flash[:error] = error_messages
+      #redirect_to new_checkout_path
+      render json: {errors: error_messages}
     end
   end
 
