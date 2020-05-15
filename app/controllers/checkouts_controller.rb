@@ -12,8 +12,8 @@ class CheckoutsController < ApplicationController
   def new
     @client_token = gateway.client_token.generate
     respond_to do |format|
-      format.html @client_token
-      format.json {render json: authenticity_token: @client_token}
+      format.html
+      format.json {render json: @client_token}
     end
   end
 
