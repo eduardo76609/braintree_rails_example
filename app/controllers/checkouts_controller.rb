@@ -34,13 +34,21 @@ class CheckoutsController < ApplicationController
       }
     )
 
-    if result.success? || result.transaction
-      redirect_to checkout_path(result.transaction.id)
-    else
-      error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
-      flash[:error] = error_messages
-      redirect_to new_checkout_path
+    respond_to do |format|
+      if result.success? || result.transaction
+        format.html {redirect_to checkout_path(result.transaction.id)}
+        format.json {render json: result.transaction.id}
+      else
+        
+        error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
+        flash[:error] = error_messages
+        
+        format.html {redirect_to new_checkout_path}
+        format.json {render json: error_messages}
+        
+      end
     end
+    
   end
 
   def _create_result_hash(transaction)
